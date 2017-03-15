@@ -1,0 +1,17 @@
+{
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "0.9",
+		"mediawiki/mediawiki-codesniffer": "0.7.2",
+		"phpunit/phpunit": "4.8.*",
+		"php-ews/php-ews": "dev-master",
+		"jamesiarmes/php-ntlm": "dev-master",
+		"ryakad/pandoc-php": "~1.0"
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpunit",
+			"phpcs -p -s"
+		]
+	}
+}

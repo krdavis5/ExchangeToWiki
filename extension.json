@@ -1,0 +1,18 @@
+{
+	"name": "ExchangeToWiki",
+	"author": "Kenneth (Trey) Davis",
+	"url": "https://www.mediawiki.org/wiki/Extension:Example",
+	"type": "other",
+	"MessagesDirs": {
+		"ExchangeToWiki": [
+			"i18n"
+		]
+	},
+	"AutoloadClasses": {
+		"ExchangeToWikiAction": "ExchangeToWikiAction.php"
+	},
+	"Actions": {
+		"exchangetowiki": "ExchangeToWikiAction"
+	},
+	"manifest_version": 2
+}
