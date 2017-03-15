@@ -7,6 +7,10 @@ Additionally a pin number helps prevent unwanted emails from being parsed. This 
 
 An example email with subject `WikiPage 99999 My Subject here` will create a Wiki page titled 'My Subject here' or overwrite it if it exists. The contents will be the raw text of the body of the email.
 
+## Prerequisites
+*Composer
+*Pandoc
+
 ## Configuration and Installation
 1. Rename config.php.conf to config.php
 2. Fill out options in config.php for both your Wiki installation and your Exchange account, also setting a pin number for your emails.
