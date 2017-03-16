@@ -323,18 +323,18 @@ class EmailInterface {
 			$dir = $this->friendlyTitle( $email['subject'] );
 
 			// Check if file has already been made for this email
-			if ( !file_exists( $this->config->extension_path . "/EmailToWiki.tmp/$dir" ) ) {
+			if ( !file_exists( $this->config->extension_path . "/ExchangeToWiki.tmp/$dir" ) ) {
 				$this->add_to_log( "Creating directory for '$email[subject]'." );
 
-				mkdir( $this->config->extension_path . "/EmailToWiki.tmp/$dir", 0777, true );
-				chown( $this->config->extension_path . "/EmailToWiki.tmp/$dir", $this->config->user );
+				mkdir( $this->config->extension_path . "/ExchangeToWiki.tmp/$dir", 0777, true );
+				chown( $this->config->extension_path . "/ExchangeToWiki.tmp/$dir", $this->config->user );
 
 				$this->add_to_log( "Creating tmp file for '$email[subject]'." );
 
-				$fh = fopen( $this->config->extension_path . "/EmailToWiki.tmp/$dir/_BODYTEXT_", 'a' );
+				$fh = fopen( $this->config->extension_path . "/ExchangeToWiki.tmp/$dir/_BODYTEXT_", 'a' );
 				fwrite( $fh, $contents );
 				fclose( $fh );
-				chown( $this->config->extension_path . "/EmailToWiki.tmp/$dir/_BODYTEXT_", $this->config->user );
+				chown( $this->config->extension_path . "/ExchangeToWiki.tmp/$dir/_BODYTEXT_", $this->config->user );
 
 				$this->add_to_log( "Finished tmp file for $email[subject]." );
 
@@ -342,8 +342,8 @@ class EmailInterface {
 				$this->markEmailAsRead( $email['id'], $email['changekey'] );
 			} else {
 				// Echo a realpath in case of directory issues
-				echo "Can't access directory: '" . realpath( "./EmailToWiki.tmp/$dir" ) . "'.";
-				$this->add_to_log( "Can't access directory: '" . realpath( "./EmailToWiki.tmp/$dir" ) . "'." );
+				echo "Can't access directory: '" . realpath( "./ExchangeToWiki.tmp/$dir" ) . "'.";
+				$this->add_to_log( "Can't access directory: '" . realpath( "./ExchangeToWiki.tmp/$dir" ) . "'." );
 			}
 		}
 	}
